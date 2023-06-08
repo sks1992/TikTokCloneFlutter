@@ -4,12 +4,18 @@ import 'package:tik_tok_app_flutter/ui/screens/auth/register_screen.dart';
 
 class RouteNames {
   static String loginScreen = "/LoginScreen";
-  static String registerScreen = "/registerScreen ";
+  static String registerScreen = "/RegisterScreen";
 }
 
 class AppRoute {
   static final route = [
-    GetPage(name: RouteNames.loginScreen, page: () => LoginScreen()),
-    GetPage(name: RouteNames.registerScreen, page: () => RegisterScreen()),
+    GetPage(
+      name: RouteNames.loginScreen,
+      page: () => LoginScreen(),
+    ),
+    GetPage(
+      name: RouteNames.registerScreen,
+      page: () => RegisterScreen(),
+    ),
   ];
 }

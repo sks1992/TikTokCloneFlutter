@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tik_tok_app_flutter/app_route.dart';
 import 'package:tik_tok_app_flutter/core/controller/login_controller.dart';
 import 'package:tik_tok_app_flutter/core/util/constants.dart';
 
@@ -16,36 +17,81 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,
+          //width: MediaQuery.of(context).size.width,
+          width: Get.width,
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "TikTok Clone",
+                "Tok Tok Clone",
                 style: TextStyle(
-                    fontSize: 35,
-                    color: buttonColor,
-                    fontWeight: FontWeight.w600),
+                    fontSize: 30,
+                    fontWeight: FontWeight.w700,
+                    color: buttonColor),
               ),
               const Text(
                 "Login",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
+
               const SizedBox(height: 16),
-              TextInputField(
-                controller: controller.emailController,
-                icon: Icons.email_outlined,
-                labelText: "Email",
-                textInputType: TextInputType.emailAddress,
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: TextInputField(
+                  controller: controller.emailController,
+                  icon: Icons.email_outlined,
+                  labelText: "Email",
+                  textInputType: TextInputType.emailAddress,
+                ),
               ),
               const SizedBox(height: 16),
-              TextInputField(
-                controller: controller.passwordController,
-                icon: Icons.lock,
-                labelText: "Password",
-                textInputType: TextInputType.visiblePassword,
-                obscureText: true,
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: TextInputField(
+                  controller: controller.passwordController,
+                  icon: Icons.lock,
+                  labelText: "Password",
+                  textInputType: TextInputType.visiblePassword,
+                  obscureText: true,
+                ),
               ),
-              ElevatedButton(onPressed: () {}, child: Text("Done"))
+              const SizedBox(height: 24),
+              SizedBox(
+                width: Get.width - 40,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(backgroundColor: buttonColor),
+                  child: const Text(
+                    "Login",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Don't have an account ?",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Get.offNamed(RouteNames.registerScreen);
+                    },
+                    child: Text(
+                      "Register Here",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: buttonColor,
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
